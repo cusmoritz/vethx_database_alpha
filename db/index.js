@@ -68,7 +68,8 @@ const createDatabase = async() => {
         await client.query(`
         CREATE TABLE IF NOT EXISTS owners (
             owner_id SERIAL PRIMARY KEY,
-            owner_name VARCHAR(100) NOT NULL,
+            owner_first_name VARCHAR(100) NOT NULL,
+            owner_last_name VARCHAR(100) NOT NULL,
             owner_address TEXT NOT NULL,
             owner_phone_main INT NOT NULL,
             owner_phone_secondary INT NOT NULL,
@@ -85,6 +86,22 @@ const createDatabase = async() => {
             pet_weight FLOAT NOT NULL,
             pet_owner INT REFERENCES owners(owner_id)
         );
+
+        CREATE TABLE IF NOT EXISTS dog_breeds (
+            dog_breed_unique_id SERIAL PRIMARY KEY,
+            dog_breed_name VARCHAR(100) NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS bird_types (
+            bird_type_unique_id SERIAL PRIMARY KEY,
+            bird_breed_name VARCHAR(100) NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS rodent_types (
+            rodent_type_unique_id SERIAL PRIMARY KEY,
+            rodent_breed_name VARCHAR(100) NOT NULL
+        );
+
         `, [])
         console.log('Done creating database...')
     } catch (error) {

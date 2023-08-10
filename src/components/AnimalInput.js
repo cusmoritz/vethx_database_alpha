@@ -111,7 +111,7 @@ export const AnimalInput = () => {
             <input type="checkbox" value="false"></input>
 
             <label htmlFor="animal-type">Animal type:</label>
-            <select className="animal-type" placeholder="Dog, cat, bird...">
+            <select className="animal-type">
                 {animalType.map((type) => (<option value={type} >{type}</option>))}
                 {/* onClick={(setAnimalState(type))} */}
             </select>
@@ -123,6 +123,7 @@ export const AnimalInput = () => {
                     <option value={breed}>{breed}</option>)}
             </select>
             </form>
+
         </div>
     )
 }

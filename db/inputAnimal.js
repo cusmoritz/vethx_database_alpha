@@ -1,3 +1,5 @@
+import { client } from "index.js";
+
 const inputAnimal = async (animalInfo) => {
     try {
         await client.query(`
